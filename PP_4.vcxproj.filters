@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{3adb6c9a-b6ef-4bed-a95f-d3864ac360c7}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <CudaCompile Include="kernel.cu">
+      <Filter>src</Filter>
+    </CudaCompile>
+    <CudaCompile Include="Matrix.cuh">
+      <Filter>src</Filter>
+    </CudaCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="verificator.py">
+      <Filter>src</Filter>
+    </None>
+    <None Include="README.md" />
+  </ItemGroup>
+</Project>
