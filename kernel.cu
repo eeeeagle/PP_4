@@ -14,7 +14,7 @@ bool check_python(const std::string filename[3])
 	const char* verificaton_result = "verification.txt";
 
 	std::cout << "Checking results by Python's NumPy";
-	system(("verificatior.exe " + filename[0] + ' ' + filename[1] + ' ' + filename[2] + " > " + verificaton_result).c_str());
+	system(("python verificatior.py " + filename[0] + ' ' + filename[1] + ' ' + filename[2] + " > " + verificaton_result).c_str());
 
 	std::ifstream file;
 	file.exceptions(std::ifstream::badbit);
