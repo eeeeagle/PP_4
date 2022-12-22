@@ -178,7 +178,7 @@ public:
 		cudaDeviceSynchronize();
 		cudaError_t err{ cudaGetLastError() };
 		if (err != cudaSuccess)
-			throw std::runtime_error(cudaGetErrorString(err))
+			throw std::runtime_error(cudaGetErrorString(err));
 
 		cudaMemcpy(c_data, cc, sizeof(T) * c.data.size(), cudaMemcpyDeviceToHost);
 
