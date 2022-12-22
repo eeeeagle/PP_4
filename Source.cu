@@ -45,7 +45,6 @@ int main(int argc, char** argv)
 	[2] Output file
 	*/
 	std::string filename[3];
-
 	if (argc == 4)
 	{
 		for (int i = 1; i < argc; i++)
