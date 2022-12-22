@@ -64,32 +64,41 @@ int main(int argc, char** argv)
 		std::cout << '\n';
 	}
 
-	std::cout << "Reading matrix A";
-	Matrix<T> a(filename[0]);
-
-	std::cout << "\rReading matrix B";
-	Matrix<T> b(filename[1]);
-
-	std::cout << "\rPerforming C = A * B";
-	Matrix<T> c = a * b;
-
-	std::cout << "\rWriting matrix C to file [" << filename[2] << "]";
-	c.write_file(filename[2]);
-	std::cout << '\r' << std::string(filename[2].size() + 40, ' ') << '\r';
-
-	if (check_python(filename))
+	try
 	{
-		std::cout << "\rAdding multiplication results in [" << filename[2] << "]...";
-		c.write_multiplication_result(filename[2]);
-		c.write_multiplication_result("res/cuda_res.txt");
 
-		std::cout << '\r' << std::string(filename[2].size() + 40, ' ');
+		std::cout << "Reading matrix A";
+		Matrix<T> a(filename[0]);
 
-		std::cout << "\rMatrix multiplication was done correctly\n"
-			"See results in [" << filename[2] << "]";
+		std::cout << "\rReading matrix B";
+		Matrix<T> b(filename[1]);
+
+		std::cout << "\rPerforming C = A * B";
+		Matrix<T> c = a * b;
+
+		std::cout << "\rWriting matrix C to file [" << filename[2] << "]";
+		c.write_file(filename[2]);
+		std::cout << '\r' << std::string(filename[2].size() + 40, ' ') << '\r';
+
+		if (check_python(filename))
+		{
+			std::cout << "\rAdding multiplication results in [" << filename[2] << "]...";
+			c.write_multiplication_result(filename[2]);
+			c.write_multiplication_result("res/cuda_res.txt");
+
+			std::cout << '\r' << std::string(filename[2].size() + 40, ' ');
+
+			std::cout << "\rMatrix multiplication was done correctly\n"
+				"See results in [" << filename[2] << "]";
+		}
+		else
+			std::cout << "\rMatrix multiplication wasn't done correctly";
 	}
-	else
-		std::cout << "\rMatrix multiplication wasn't done correctly";
+	catch (std::exception const& ex)
+	{
+		std::cout << "\n\n[!] ERROR [!]\n" << ex.what() << "\n\n";
+		exit(EXIT_FAILURE);
+	}
 
 	std::cout << "\n\n";
 	return 0;
