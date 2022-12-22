@@ -178,11 +178,7 @@ public:
 		cudaDeviceSynchronize();
 		cudaError_t err{ cudaGetLastError() };
 		if (err != cudaSuccess)
-		{
-			std::cerr << "CUDA Matrix Multiplication kernel failed to execute." << std::endl;
-			std::cerr << cudaGetErrorString(err) << std::endl;
-			exit(EXIT_FAILURE);
-		}
+			throw std::runtime_error(cudaGetErrorString(err))
 
 		cudaMemcpy(c_data, cc, sizeof(T) * c.data.size(), cudaMemcpyDeviceToHost);
 
