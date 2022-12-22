@@ -205,7 +205,7 @@ public:
 		{
 			std::stringstream iss(buffer);
 
-			T value{ 0 };
+			T value {0};
 			std::vector<T> temp;
 			while (iss >> value)
 				temp.push_back(value);
