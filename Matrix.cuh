@@ -257,7 +257,7 @@ public:
 		file.exceptions(std::ofstream::badbit);
 		file.open(filepath, std::ofstream::app);
 
-		file << '\n' << "Runtime" << ' ' << last_multiplication_time << ' ' << " seconds" << '\n';
+		file << '\n' << "Runtime" << ' ' << last_multiplication_time << ' ' << " ms" << '\n';
 		file << "Volume" << ' ' << rows * columns;
 
 		file.close();

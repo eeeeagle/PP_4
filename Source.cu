@@ -78,12 +78,12 @@ int main(int argc, char** argv)
 		c.write_file(filename[2]);
 		std::cout << '\r' << std::string(filename[2].size() + 40, ' ') << '\r';
 
-		c.write_multiplication_result("cuda_res.txt");
 
 		if (check_python(filename))
 		{
 			std::cout << "\rAdding multiplication results in [" << filename[2] << "]...";
 			c.write_multiplication_result(filename[2]);
+			c.write_multiplication_result("log.txt");
 			std::cout << '\r' << std::string(filename[2].size() + 40, ' ') << '\r';
 
 			std::cout << "Matrix multiplication was done correctly\n"
