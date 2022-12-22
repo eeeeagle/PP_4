@@ -6,7 +6,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <CudaCompile Include="kernel.cu">
+    <CudaCompile Include="Source.cu">
       <Filter>src</Filter>
     </CudaCompile>
     <CudaCompile Include="Matrix.cuh">
@@ -18,5 +18,14 @@
       <Filter>src</Filter>
     </None>
     <None Include="README.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="resource.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="PP_4.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="PP_4.ico" />
   </ItemGroup>
 </Project>

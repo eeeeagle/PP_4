@@ -49,7 +49,7 @@ int main(int argc, char** argv)
 	if (argc == 4)
 	{
 		for (int i = 1; i < argc; i++)
-			filename[i] = argv[i];
+			filename[i - 1] = argv[i];
 	}
 	else
 	{
@@ -66,7 +66,6 @@ int main(int argc, char** argv)
 
 	try
 	{
-
 		std::cout << "Reading matrix A";
 		Matrix<T> a(filename[0]);
 
@@ -80,15 +79,15 @@ int main(int argc, char** argv)
 		c.write_file(filename[2]);
 		std::cout << '\r' << std::string(filename[2].size() + 40, ' ') << '\r';
 
+		c.write_multiplication_result("cuda_res.txt");
+
 		if (check_python(filename))
 		{
 			std::cout << "\rAdding multiplication results in [" << filename[2] << "]...";
 			c.write_multiplication_result(filename[2]);
-			c.write_multiplication_result("res/cuda_res.txt");
+			std::cout << '\r' << std::string(filename[2].size() + 40, ' ') << '\r';
 
-			std::cout << '\r' << std::string(filename[2].size() + 40, ' ');
-
-			std::cout << "\rMatrix multiplication was done correctly\n"
+			std::cout << "Matrix multiplication was done correctly\n"
 				"See results in [" << filename[2] << "]";
 		}
 		else
